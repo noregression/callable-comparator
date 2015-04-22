@@ -1,6 +1,9 @@
 {
     "name": "berrygoudswaard/callable-comparator",
     "description": "Makes it possible to use callables in PHPunit assertions",
+    "keywords": ["phpunit", "comparator", "callable"],
+    "homepage": "http://www.berrygoudswaard.nl",
+    "license": "MIT",
     "require": {
         "sebastian/comparator": "~1.1",
         "sebastian/exporter": "~1.2"

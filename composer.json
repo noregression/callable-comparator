@@ -1,0 +1,19 @@
+{
+    "name": "berrygoudswaard/callable-comparator",
+    "description": "Makes it possible to use callables in PHPunit assertions",
+    "require": {
+        "sebastian/comparator": "~1.1",
+        "sebastian/exporter": "~1.2"
+    },
+    "authors": [
+        {
+            "name": "Berry Goudswaard",
+            "email": "info@berrygoudswaard.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BerryGoudswaard\\": "src"
+        }
+    }
+}

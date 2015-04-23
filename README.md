@@ -1,4 +1,10 @@
-# PHPUnit Callable Comparator [![Build Status](https://travis-ci.org/berrygoudswaard/callable-comparator.svg?branch=master)](https://travis-ci.org/berrygoudswaard/callable-comparator)
+# PHPUnit Callable Comparator
+
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt)
+[![Build Status](https://travis-ci.org/berrygoudswaard/callable-comparator.svg?branch=master)](https://travis-ci.org/berrygoudswaard/callable-comparator)
+[![Code Climate](https://codeclimate.com/github/berrygoudswaard/callable-comparator/badges/gpa.svg)](https://codeclimate.com/github/berrygoudswaard/callable-comparator)
+[![Test Coverage](https://codeclimate.com/github/berrygoudswaard/callable-comparator/badges/coverage.svg)](https://codeclimate.com/github/berrygoudswaard/callable-comparator)
+[![Total Downloads](https://img.shields.io/packagist/dt/berrygoudswaard/callable-comparator.svg)](https://packagist.org/packages/berrygoudswaard/callable-comparator)
 
 Makes it possible to use callables in PHPunit assertions
 

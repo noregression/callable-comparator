@@ -2,7 +2,7 @@
 
 namespace BerryGoudswaard\PHPUnit\Comparator\Callables;
 
-abstract class BaseCallable
+abstract class BaseCallable implements CallableInterface
 {
     private $actual;
     private $isValid;

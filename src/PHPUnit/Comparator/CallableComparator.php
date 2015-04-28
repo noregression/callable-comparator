@@ -2,7 +2,7 @@
 
 namespace BerryGoudswaard\PHPUnit\Comparator;
 
-use BerryGoudswaard\PHPUnit\Comparator\Callables\BaseCallable;
+use BerryGoudswaard\PHPUnit\Comparator\Callables\CallableInterface;
 use BerryGoudswaard\PHPUnit\Exporter\Exporter;
 use SebastianBergmann\Comparator\Comparator;
 
@@ -16,7 +16,7 @@ class CallableComparator extends Comparator
 
     public function accepts($expected, $actual)
     {
-        return $expected instanceof BaseCallable;
+        return $expected instanceof CallableInterface;
     }
 
     public function assertEquals(

@@ -3,6 +3,7 @@
 namespace BerryGoudswaard\PHPUnit\Comparator;
 
 use BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid;
+use BerryGoudswaard\PHPUnit\Comparator\Callables\CallableProxy;
 
 class CallableComparatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,9 +34,19 @@ class CallableComparatorTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException(
             '\SebastianBergmann\Comparator\ComparisonFailure',
-            'Failed asserting that \'notanuuid\' matches expected BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid Object'
+            'Failed asserting that \'notanuuid\' is a valid UUID'
         );
         $callable = new IsUuid();
         $this->assertTrue($this->comparator->assertEquals($callable, 'notanuuid'));
+    }
+
+    public function testAssertEqualsWithArraySucceeds()
+    {
+        $this->setExpectedException(
+            '\SebastianBergmann\Comparator\ComparisonFailure',
+            'Failed asserting that a string is empty'
+        );
+        $callable = new CallableProxy([$this, 'assertEmpty']);
+        $this->assertTrue($this->comparator->assertEquals($callable, 'notempty'));
     }
 }

@@ -37,7 +37,11 @@ class IsDateTimeTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidValues($dateTime)
     {
-        $this->assertFalse($this->callable->isValid($dateTime));
+        $this->setExpectedException(
+            '\SebastianBergmann\Comparator\ComparisonFailure',
+            sprintf('Failed asserting that \'%s\' is a valid DateTime', $dateTime)
+        );
+        $this->assertFalse(call_user_func($this->callable, $dateTime));
     }
 
     /**
@@ -52,14 +56,5 @@ class IsDateTimeTest extends \PHPUnit_Framework_TestCase
     {
         call_user_func($this->callable, '2015-02-04 12:31:34');
         $this->assertEquals('\'2015-02-04 12:31:34\'', (string)$this->callable);
-    }
-
-    public function testToStringWithInvalidValue()
-    {
-        call_user_func($this->callable, 'invalid datetime');
-        $this->assertEquals(
-            '\'BerryGoudswaard\PHPUnit\Comparator\Callables\IsDateTime error\'',
-            (string)$this->callable
-        );
     }
 }

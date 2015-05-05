@@ -38,28 +38,26 @@ class IsUuidTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider failsProvider
      */
-    public function testInvalidValues($dateTime)
+    public function testInvalidValues($uuid)
     {
-        $this->assertFalse($this->callable->isValid($dateTime));
+        $this->setExpectedException(
+            '\SebastianBergmann\Comparator\ComparisonFailure',
+            sprintf('Failed asserting that \'%s\' is a valid UUID', $uuid)
+        );
+        $this->assertFalse(call_user_func($this->callable, $uuid));
     }
 
     /**
      * @dataProvider succeedsProvider
      */
-    public function testValidValues($dateTime)
+    public function testValidValues($uuid)
     {
-        $this->assertTrue($this->callable->isValid($dateTime));
+        $this->assertTrue(call_user_func($this->callable, $uuid));
     }
 
     public function testToStringWithValidValue()
     {
         call_user_func($this->callable, 'b12a48d3-5586-4b22-ae86-0bc3839ad79d');
         $this->assertEquals('\'b12a48d3-5586-4b22-ae86-0bc3839ad79d\'', (string)$this->callable);
-    }
-
-    public function testToStringWithInvalidValue()
-    {
-        call_user_func($this->callable, 'invalid uuid');
-        $this->assertEquals('\'BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid error\'', (string)$this->callable);
     }
 }

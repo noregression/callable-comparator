@@ -39,12 +39,16 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
     {
         $data = [
             'id' => 'f4a2b7b0-e944-11e4-b571-0800200c9a66',
-            'modified' => '2015-03-22 01:12'
+            'modified' => '2015-03-22 01:12',
+            'emptystring' => '',
+            'contains' => 'This string contains "lazy fox".'
         ];
 
         $expected = [
             'id' => new IsUuid(),
-            'modified' => new IsDateTime()
+            'modified' => new IsDateTime(),
+            'emptystring' => new CallableProxy([$this, 'assertEmpty']),
+            'contains' => new CallableProxy([$this, 'assertContains'], ['lazy fox'])
         ];
 
         $this->assertEquals($expected, $data);

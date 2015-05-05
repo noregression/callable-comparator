@@ -4,8 +4,8 @@ namespace BerryGoudswaard\PHPUnit\Comparator\Callables;
 
 abstract class BaseCallable implements CallableInterface
 {
-    private $actual;
-    private $isValid;
+    protected $actual;
+    protected $isValid;
 
     public function __invoke($actual)
     {

@@ -27,23 +27,6 @@ class CallableComparator extends Comparator
         $ignoreCase = false,
         array &$processed = array()
     ) {
-        $result = $expected($actual);
-
-        if (!$result) {
-            throw new \SebastianBergmann\Comparator\ComparisonFailure(
-                $expected,
-                $actual,
-                '',
-                '',
-                false,
-                sprintf(
-                    'Failed asserting that %s matches expected %s.',
-                    $this->exporter->export($actual),
-                    $this->exporter->export($expected)
-                )
-            );
-        }
-
-        return $result;
+        return call_user_func($expected, $actual);
     }
 }

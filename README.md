@@ -35,7 +35,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
         $comparatorFactory->register(new CallableComparator());
     }
 
-    public function testValidUuid()
+    public function testCallableComparator()
     {
         $data = [
             'id' => 'f4a2b7b0-e944-11e4-b571-0800200c9a66',

@@ -21,6 +21,7 @@ require_once ('vendor/autoload.php');
 
 use BerryGoudswaard\PHPUnit\Comparator\ArrayComparator;
 use BerryGoudswaard\PHPUnit\Comparator\CallableComparator;
+use BerryGoudswaard\PHPUnit\Comparator\Callables\CallableProxy;
 use BerryGoudswaard\PHPUnit\Comparator\Callables\IsDateTime;
 use BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid;
 use SebastianBergmann\Comparator\Factory;

@@ -2,6 +2,7 @@
 
 namespace BerryGoudswaard\PHPUnit\Comparator\Callables;
 
+use \PHPUnit_Framework_ExpectationFailedException;
 use \SebastianBergmann\Comparator\ComparisonFailure;
 
 class CallableProxy extends BaseCallable
@@ -16,12 +17,9 @@ class CallableProxy extends BaseCallable
 
     public function isValid($actual)
     {
-        $params = array_merge($this->params, [$actual]);
-
         try {
-            call_user_func_array($this->callable, $params);
-            return true;
-        } catch (\Exception $e) {
+            return $this->doAssert($actual);
+        } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             throw new ComparisonFailure(
                 (string)$this,
                 $actual,
@@ -31,5 +29,19 @@ class CallableProxy extends BaseCallable
                 $e->getMessage()
             );
         }
+    }
+
+    private function doAssert($actual)
+    {
+        $params = array_merge($this->params, [$actual]);
+        $result = call_user_func_array($this->callable, $params);
+        
+        if ($result !== null && $result !== true) {
+            throw new PHPUnit_Framework_ExpectationFailedException(
+                'Failed asserting that the callable proxy returned true'
+            );
+        }
+
+        return true;
     }
 }

@@ -24,6 +24,7 @@ use BerryGoudswaard\PHPUnit\Comparator\CallableComparator;
 use BerryGoudswaard\PHPUnit\Comparator\Callables\CallableProxy;
 use BerryGoudswaard\PHPUnit\Comparator\Callables\IsDateTime;
 use BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid;
+use BerryGoudswaard\PHPUnit\Comparator\Callables\IsPasswordHashFor;
 use SebastianBergmann\Comparator\Factory;
 
 class ExampleTest extends \PHPUnit_Framework_TestCase
@@ -41,6 +42,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
         $data = [
             'id' => 'f4a2b7b0-e944-11e4-b571-0800200c9a66',
             'modified' => '2015-03-22 01:12',
+            'password' => password_hash('password', PASSWORD_BCRYPT),
             'emptystring' => '',
             'contains' => 'This string contains "lazy fox".'
         ];
@@ -48,6 +50,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
         $expected = [
             'id' => new IsUuid(),
             'modified' => new IsDateTime(),
+            'password' => new IsPasswordHashFor('password'),
             'emptystring' => new CallableProxy([$this, 'assertEmpty']),
             'contains' => new CallableProxy([$this, 'assertContains'], ['lazy fox'])
         ];

@@ -6,6 +6,9 @@ class IsPasswordHashForTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
+        if (phpversion() < 5.5) {
+            return $this->markTestSkipped('test');
+        }
         $this->callable = new IsPasswordHashFor('password');
     }
 

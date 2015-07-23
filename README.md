@@ -42,7 +42,8 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
         $data = [
             'id' => 'f4a2b7b0-e944-11e4-b571-0800200c9a66',
             'modified' => '2015-03-22 01:12',
-            'password' => password_hash('password', PASSWORD_BCRYPT),
+            'bcrypt_password' => password_hash('password', PASSWORD_BCRYPT),
+            'default_password' => password_hash('password', PASSWORD_DEFAULT),
             'emptystring' => '',
             'contains' => 'This string contains "lazy fox".'
         ];
@@ -50,7 +51,8 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
         $expected = [
             'id' => new IsUuid(),
             'modified' => new IsDateTime(),
-            'password' => new IsPasswordHashFor('password'),
+            'bcrypt_password' => new IsPasswordHashFor('password'),
+            'default_password' => new IsPasswordHashFor('password'),
             'emptystring' => new CallableProxy([$this, 'assertEmpty']),
             'contains' => new CallableProxy([$this, 'assertContains'], ['lazy fox'])
         ];

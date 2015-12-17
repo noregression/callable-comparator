@@ -3,26 +3,20 @@
 namespace BerryGoudswaard\PHPUnit\Exporter;
 
 use BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid;
-use BerryGoudswaard\PHPUnit\Comparator\ArrayComparator;
-use BerryGoudswaard\PHPUnit\Comparator\CallableComparator;
-use SebastianBergmann\Comparator\Factory;
+use BerryGoudswaard\PHPUnit\CallableComparatorTrait;
 
 class ExporterTest extends \PHPUnit_Framework_TestCase
 {
+    use CallableComparatorTrait;
+
     protected function setUp()
     {
         $this->exporter = new Exporter();
-        $this->arrayComparator = new ArrayComparator();
-        $this->callableComparator = new CallableComparator();
-        $this->comparatorFactory = Factory::getInstance();
-
-
     }
 
     protected function tearDown()
     {
-        $this->comparatorFactory->register($this->arrayComparator);
-        $this->comparatorFactory->unregister($this->callableComparator);
+        $this->tearDownCallableComparator();
     }
 
     public function testExtendsBaseExporter()
@@ -53,8 +47,7 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
 
     public function testOutputWithArrayComparatorIsGood()
     {
-        $this->comparatorFactory->register($this->arrayComparator);
-        $this->comparatorFactory->register($this->callableComparator);
+        $this->setupCallableComparator();
 
         $data = [
             'id' => 'e759d425-17b8-4362-ad93-6f6e15f50aa4',

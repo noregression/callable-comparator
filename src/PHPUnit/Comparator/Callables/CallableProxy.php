@@ -1,6 +1,6 @@
 <?php
 
-namespace BerryGoudswaard\PHPUnit\Comparator\Callables;
+namespace NoRegression\PHPUnit\Comparator\Callables;
 
 use \PHPUnit_Framework_ExpectationFailedException;
 use \SebastianBergmann\Comparator\ComparisonFailure;
@@ -35,7 +35,7 @@ class CallableProxy extends BaseCallable
     {
         $params = array_merge($this->params, [$actual]);
         $result = call_user_func_array($this->callable, $params);
-        
+
         if ($result !== null && $result !== true) {
             throw new PHPUnit_Framework_ExpectationFailedException(
                 'Failed asserting that the callable proxy returned true'

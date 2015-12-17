@@ -1,8 +1,8 @@
 {
-    "name": "berrygoudswaard/callable-comparator",
+    "name": "noregression/callable-comparator",
     "description": "Makes it possible to use callables in PHPunit assertions",
     "keywords": ["phpunit", "comparator", "callable"],
-    "homepage": "http://www.berrygoudswaard.nl",
+    "homepage": "http://www.noregression.nl",
     "license": "MIT",
     "require": {
         "php": ">=5.5.9",
@@ -16,12 +16,12 @@
     "authors": [
         {
             "name": "Berry Goudswaard",
-            "email": "info@berrygoudswaard.nl"
+            "email": "info@noregression.nl"
         }
     ],
     "autoload": {
         "psr-4": {
-            "BerryGoudswaard\\": "src"
+            "NoRegression\\": "src"
         }
     }
 }

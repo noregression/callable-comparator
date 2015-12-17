@@ -1,6 +1,6 @@
 <?php
 
-namespace BerryGoudswaard\PHPUnit\Comparator\Callables;
+namespace NoRegression\PHPUnit\Comparator\Callables;
 
 class CallableProxyTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace BerryGoudswaard\PHPUnit\Exporter;
+namespace NoRegression\PHPUnit\Exporter;
 
-use BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid;
-use BerryGoudswaard\PHPUnit\CallableComparatorTrait;
+use NoRegression\PHPUnit\Comparator\Callables\IsUuid;
+use NoRegression\PHPUnit\CallableComparatorTrait;
 
 class ExporterTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,7 +32,7 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
         $callable = new IsUuid();
 
         $this->assertEquals(
-            '\'BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid error\'',
+            '\'NoRegression\PHPUnit\Comparator\Callables\IsUuid error\'',
             $this->exporter->shortenedExport($callable)
         );
     }
@@ -75,6 +75,6 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotEquals($expected, $data);
         $this->assertNotEquals($expected['id'], $data['id']);
-        $this->assertContains('BerryGoudswaard\PHPUnit\Comparator\Callables\IsUuid error', (string)$expected['id']);
+        $this->assertContains('NoRegression\PHPUnit\Comparator\Callables\IsUuid error', (string)$expected['id']);
     }
 }

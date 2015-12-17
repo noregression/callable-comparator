@@ -1,8 +1,8 @@
 <?php
 
-namespace BerryGoudswaard\PHPUnit\Exporter;
+namespace NoRegression\PHPUnit\Exporter;
 
-use BerryGoudswaard\PHPUnit\CallableComparatorTrait;
+use NoRegression\PHPUnit\CallableComparatorTrait;
 use SebastianBergmann\Comparator\Factory;
 
 class CallableComparatorTraitTest extends \PHPUnit_Framework_TestCase
@@ -24,18 +24,18 @@ class CallableComparatorTraitTest extends \PHPUnit_Framework_TestCase
         $comparatorFactory = Factory::getInstance();
         $comparator = $comparatorFactory->getComparatorFor([], []);
 
-        $this->assertInstanceOf('\BerryGoudswaard\PHPUnit\Comparator\ArrayComparator', $comparator);
+        $this->assertInstanceOf('\NoRegression\PHPUnit\Comparator\ArrayComparator', $comparator);
     }
 
     public function testCallableComparator()
     {
         $callableComparatorMock = $this
-            ->getMockBuilder('\BerryGoudswaard\PHPUnit\Comparator\Callables\CallableInterface')
+            ->getMockBuilder('\NoRegression\PHPUnit\Comparator\Callables\CallableInterface')
             ->getMock();
 
         $comparatorFactory = Factory::getInstance();
         $comparator = $comparatorFactory->getComparatorFor($callableComparatorMock, null);
 
-        $this->assertInstanceOf('\BerryGoudswaard\PHPUnit\Comparator\CallableComparator', $comparator);
+        $this->assertInstanceOf('\NoRegression\PHPUnit\Comparator\CallableComparator', $comparator);
     }
 }

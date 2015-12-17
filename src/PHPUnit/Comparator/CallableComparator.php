@@ -1,9 +1,9 @@
 <?php
 
-namespace BerryGoudswaard\PHPUnit\Comparator;
+namespace NoRegression\PHPUnit\Comparator;
 
-use BerryGoudswaard\PHPUnit\Comparator\Callables\CallableInterface;
-use BerryGoudswaard\PHPUnit\Exporter\Exporter;
+use NoRegression\PHPUnit\Comparator\Callables\CallableInterface;
+use NoRegression\PHPUnit\Exporter\Exporter;
 use SebastianBergmann\Comparator\Comparator;
 
 class CallableComparator extends Comparator

@@ -1,6 +1,6 @@
 <?php
 
-namespace BerryGoudswaard\PHPUnit\Comparator\Callables;
+namespace NoRegression\PHPUnit\Comparator\Callables;
 
 abstract class BaseCallable implements CallableInterface
 {
